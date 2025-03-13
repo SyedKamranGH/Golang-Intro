@@ -27,6 +27,24 @@ func main() {
 
 	// position = "Go-Lang"
 	if age >= 10 {
-		fmt.Printf("Hi %v, Lets start becoming %v dev", name, position)
+		fmt.Printf("Hi %v, Lets start becoming %v dev \n", name, position)
+
+		fmt.Printf("MERN stand  for?")
+		var ans string
+		var ans2 string
+		fmt.Scan(&ans, &ans2)
+
+		if ans+" "+ans2 == "Mongo Express" {
+			fmt.Println("Correct ")
+			fmt.Println(ans, ans2)
+		} else {
+			fmt.Println("INcorrect")
+		}
+
+	} else {
+		fmt.Println("Not old yet")
+		return
 	}
+
+	// fmt.Println("cant play")
 }
