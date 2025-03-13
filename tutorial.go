@@ -17,15 +17,15 @@ func main() {
 	fmt.Scan(&age)
 
 	fmt.Println(age >= 10)
-	// var isEmployed = true
+	var isEmployed = true
 
 	position := "Full Stack"
-	// fmt.Println(name)
-	// fmt.Println(age)
-	// fmt.Println(isEmployed)
-	// fmt.Println(position)
+	fmt.Println(name)
+	fmt.Println(age)
+	fmt.Println(isEmployed)
+	fmt.Println(position)
 
-	// position = "Go-Lang"
+	position = "Go-Lang"
 	if age >= 10 {
 		fmt.Printf("Hi %v, Lets start becoming %v dev \n", name, position)
 
