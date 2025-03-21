@@ -48,3 +48,13 @@ package tutorials
 
 // 	// fmt.Println("cant play")
 // }
+
+// Arrary have fix size and slices is unlimited array
+// var taskItems = []string{GoLangLearning, "1. Welcome to our Todo app!", "2. Watching go crash course!", "3. Next is GoLang full course!"}
+
+// fmt.Println("ToDo App:", taskItems)
+
+// for loop syntex
+// for index, task := range taskItems {
+// 	fmt.Println(index, task)
+// }
