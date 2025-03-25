@@ -1,47 +1,55 @@
 package main
 
-import (
-	"fmt"
-	"net/http"
-)
+import "fmt"
 
-var taskItems = []string{"Welcome to our Todo app!", "Watching go crash course!", "Next is GoLang full course!"}
+type person struct {
+	name string
+	age  int
+	sex  string
+}
+
+func newPerson(name string, sex string) *person {
+
+	p := person{name: name, age: 42, sex: sex}
+	// p.age = 42
+	// p.sex = sex
+	// p.sex = person{sex: sex}
+	return &p
+}
 
 func main() {
-	fmt.Println("############ Welcome to our Todo List App! ########")
 
-	http.HandleFunc("/", helloUser)
-	http.HandleFunc("/show-tasks", showTasks)
-	http.ListenAndServe(":8080", nil)
-}
+	// address := 1330
 
-func helloUser(w http.ResponseWriter, req *http.Request) {
-	greeting := "Help user. Welcome to our Golang TodoList App"
-	fmt.Fprintf(w, greeting)
-}
+	fmt.Println(person{"Bob", 20, "Male"})
 
-func showTasks(w http.ResponseWriter, req *http.Request) {
-	for index, task := range taskItems {
+	fmt.Println(person{name: "Alice", age: 30, sex: "Female"})
 
-		fmt.Fprintln(w, index, task)
+	fmt.Println(person{name: "Fred"})
+
+	fmt.Println(&person{name: "Ann", sex: "Female"})
+
+	fmt.Println(newPerson("Jon", "Male"))
+
+	s := person{name: "Sean", age: 50, sex: "xyz"}
+	fmt.Println(s, s.name, s.age)
+
+	sp := &s
+	sp.age = 79
+	fmt.Println(sp.age)
+	fmt.Println(s)
+
+	// sp.age = 51
+	// fmt.Println(sp.age)
+
+	dog := struct {
+		name   string
+		isGood bool
+	}{
+		"Rex",
+		true,
 	}
+	fmt.Println(dog)
 
-}
-
-func printTasks(taskItems []string, itemLimit int) {
-	fmt.Println("List of my Tasks")
-
-	for index, task := range taskItems {
-		// fmt.Println(index+1, ".", task)
-		fmt.Printf("%d. %s\n", index+1, task)
-	}
-
-	fmt.Printf("Max items are: %v\n", itemLimit)
-}
-
-func addTask(taskItems []string, newTask string) []string {
-	var updatedTaskItems = append(taskItems, newTask)
-	// printTasks(updatedTaskItems, 23)
-	return updatedTaskItems
-
+	// fmt.Println(dog{name: "Scooby", isGood: "true"})
 }
