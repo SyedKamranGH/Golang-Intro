@@ -2,36 +2,29 @@ package main
 
 import (
 	"fmt"
+	"net/http"
 )
 
-// var GoLangLearning = "Learning GoLang step by step"
-// var taskItems = []string{GoLangLearning, "Welcome to our Todo app!", "Watching go crash course!", "Next is GoLang full course!"}
+var taskItems = []string{"Welcome to our Todo app!", "Watching go crash course!", "Next is GoLang full course!"}
 
 func main() {
-	fmt.Println("~~~~~ Welcome to GoLang! ############")
+	fmt.Println("############ Welcome to our Todo List App! ########")
 
-	GoLangLearning := "Learning GoLang step by step"
+	http.HandleFunc("/", helloUser)
+	http.HandleFunc("/show-tasks", showTasks)
+	http.ListenAndServe(":8080", nil)
+}
 
-	// fmt.Println("1. Welcome to our Todo app!")
-	// fmt.Println("2. Watching go crash course!")
-	// fmt.Println("3. Next is GoLang full course!")
-	// fmt.Println(1231)
-	// fmt.Println(GoLangLearning)
+func helloUser(w http.ResponseWriter, req *http.Request) {
+	greeting := "Help user. Welcome to our Golang TodoList App"
+	fmt.Fprintf(w, greeting)
+}
 
-	// Arrary have fix size and slices is unlimited array
-	var taskItems = []string{GoLangLearning, "Welcome to our Todo app!", "Watching go crash course!", "Next is GoLang full course!"}
-	maxItem := 45
-	// fmt.Println("ToDo App:", taskItems)
+func showTasks(w http.ResponseWriter, req *http.Request) {
+	for index, task := range taskItems {
 
-	printTasks(taskItems, maxItem)
-
-	println("----------------")
-	taskItems = addTask(taskItems, "Go for web dev")
-	taskItems = addTask(taskItems, "Go for web dev with react app")
-
-	println("----------------")
-
-	printTasks(taskItems, maxItem)
+		fmt.Fprintln(w, index, task)
+	}
 
 }
 
