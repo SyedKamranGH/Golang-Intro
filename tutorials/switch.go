@@ -1,4 +1,4 @@
-package main
+package tutorials
 
 import (
 	"fmt"
@@ -22,7 +22,7 @@ func checkSaturday() {
 	}
 }
 
-func dailyGreetings() {
+func dailtGreetings() {
 	t := time.Now()
 	fmt.Println("Current Time: ", t.Hour())
 	switch {
@@ -34,7 +34,8 @@ func dailyGreetings() {
 		fmt.Println("Good Evening")
 	}
 }
-func main() {
-	checkSaturday()
-	dailyGreetings()
-}
+
+// func main() {
+// 	checkSaturday()
+// 	dailtGreetings()
+// }
